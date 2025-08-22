@@ -17,13 +17,7 @@ class RandomProcessor
     /** @throws Exception */
     public function process(array $data)
     {
-        $filterWriter = new $this->fileWriter($data);
-
-        /**
-         * @var FileWriter $filterWriter
-         */
-
-        $result = $filterWriter->writeToFile($data);
+        $result = $this->fileWriter->writeToFile($data);
 
         if ( ! $result) {
             throw new Exception('Error writing to file');
