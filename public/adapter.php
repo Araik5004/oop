@@ -1,9 +1,13 @@
 <?php
 
-require_once dirname(__DIR__, 1) . '/vendor/autoload.php';
+use App\NewCsvFileWriter;
+use App\NewFileWriterAdapter;
+use App\RandomProcessor;
 
-$newCsvFileWriter = new \App\NewCsvFileWriter();
-$fileWriter = new \App\NewFileWriterAdapter($newCsvFileWriter);
+require_once dirname(__DIR__, 1).'/vendor/autoload.php';
 
-$processor = new \App\RandomProcessor($fileWriter);
+$newCsvFileWriter = new NewCsvFileWriter();
+$fileWriter = new NewFileWriterAdapter($newCsvFileWriter);
+
+$processor = new RandomProcessor($fileWriter);
 $processor->process(['foo' => 'bar']);
