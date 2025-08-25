@@ -11,7 +11,7 @@ class PlanFactory
      */
     public function createPlan(string $plane = 'free'): Plan
     {
-        $planeName = 'App\\Plans\\'.ucfirst($plane).'\\Plane';
+        $planeName = 'App\\Plans\\'.ucfirst($plane).'\\Plan';
 
         if (!class_exists($planeName)) {
             throw new Exception('Plane not found: '.$planeName);
